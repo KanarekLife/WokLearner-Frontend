@@ -1,0 +1,14 @@
+<nav class="navbar">
+	<div class="navbar-toggle" (click)="showNav()"> <i class="fa fa-bars"></i> </div> 
+	<a class="logo" routerLink="/" routerLinkActive="active">
+		<span>Wok</span>Learner</a>
+	<ul (click)="hideNav()" class="main-nav" id="main-nav">
+		<li> <a class="nav-links" *ngIf="!this.isLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a> </li>
+		<li> <a class="nav-links" *ngIf="!this.isLoggedIn()" routerLink="/register" routerLinkActive="active">Register</a> </li>
+    	<li> <a class="nav-links" *ngIf="this.isLoggedIn()" routerLink="/learn" routerLinkActive="active">Learn</a> </li>
+    	<li> <a class="nav-links" *ngIf="this.isLoggedIn()" routerLink="/gallery" routerLinkActive="active">Gallery</a> </li>
+		<li> <a class="nav-links" *ngIf="this.isLoggedIn() && this.isAdmin()" routerLink="/admin" routerLinkActive="active">Admin Section</a> </li>
+		<li> <a class="nav-links" *ngIf="this.isLoggedIn()" routerLink="/manage" routerLinkActive="active">Manage Account</a> </li>
+		<li> <a class="nav-links" *ngIf="this.isLoggedIn()" routerLink="/logout" routerLinkActive="active">Logout</a> </li>
+	</ul>
+</nav>

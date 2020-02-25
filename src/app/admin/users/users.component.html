@@ -1,0 +1,9 @@
+<h1>Users module:</h1>
+<table>
+  <tr *ngFor="let user of users">
+    <td>{{user.userName}}</td>
+    <td>{{user.accessFailedCount}}</td>
+    <button (click)="ChangeUserName(user)">Change username</button>
+    <button (click)="RemoveUser(user)">Remove account</button>
+  </tr>
+</table>

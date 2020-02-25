@@ -1,0 +1,23 @@
+<h1>Paintings module:</h1>
+<table>
+  <tr>
+    <td>New Painting: </td>
+    <td><input [(ngModel)]="this.newImage.style"/></td>
+    <td><input [(ngModel)]="this.newImage.author"/></td>
+    <td><input #newFile type="file"></td>
+    <td><button (click)="Create(newFile.files)">Create</button></td>
+  </tr>
+</table>
+<app-loading *ngIf="loading"></app-loading>
+<table>
+    <tr *ngFor="let image of images">
+      <td><input [(ngModel)]="image.style"/></td>
+      <td><input [(ngModel)]="image.author"/></td>
+      <td>{{image.fileName}}</td>
+      <td><input #file type="file"></td>
+      <td><button (click)="Save(image, file.files)">Save Changes</button></td>
+      <td><button (click)="Delete(image)">Delete from DB</button> </td>
+      <td><a [href]="getUrl(image)">Link</a> </td>
+    </tr>
+</table>
+<app-pagination [page]="page" [pages]="pages" (Update)="onUpdate($event)"></app-pagination>

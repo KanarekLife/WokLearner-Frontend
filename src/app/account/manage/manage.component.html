@@ -1,0 +1,61 @@
+<div class="container">
+	<h1 class="title">Account Settings</h1>
+	<div class="change-username">
+		<div class="form">
+			<h1>Change username</h1>
+			<div class="input-field">
+        <input placeholder=" " type="text" required pattern="\S+.*" #usernameInput/>
+        <span class="bar"></span>
+				<label>Username</label>
+			</div>
+			<button (click)="ChangeUsername(usernameInput.value)">Change username</button>
+		</div>
+	</div>
+	<div class="change-password">
+		<div class="form">
+			<h1>Change password</h1>
+			<div class="input-field">
+        <input placeholder=" " required pattern="\S+.*" #oldPassword type="password" />
+        <span class="bar"></span>
+				<label>Old Password</label>
+			</div>
+			<div class="input-field">
+        <input placeholder=" " required pattern="\S+.*" #newPassword type="password" />
+        <span class="bar"></span>
+				<label>New Password</label>
+			</div>
+			<div class="input-field">
+        <input placeholder=" " required pattern="\S+.*" #newRepeatedPassword type="password" />
+        <span class="bar"></span>
+				<label>Repeat New Password</label>
+			</div>
+		</div>
+		<button (click)="ChangePassword(oldPassword.value, newPassword.value, newRepeatedPassword.value)">Change password</button>
+	</div>
+	<div class="remove">
+		<div class="form">
+			<h1>Remove account</h1>
+			<p>To Remove Account provide your password:</p>
+			<div class="input-field">
+        <input placeholder=" " required pattern="\S+.*" #password type="password" />
+        <span class="bar"></span>
+				<label>Are you sure?</label>
+			</div>
+			<button (click)="RemoveAccount(password.value)">Remove account</button>
+		</div>
+	</div>
+	<div class="skip">
+    <h1>Skip Level</h1>
+		<div class="input-field">
+			<input placeholder=" " required pattern="\S+.*" #skipLevelInput type="number" [value]="skipLevel"/> <span class="bar"></span>
+			<label>Skip Level</label>
+		</div>
+		<button (click)="ChangeSkipLevel(skipLevelInput.valueAsNumber)">Save changes</button>
+	</div>
+	<div class="learned">
+    <h1>Remove account</h1>
+		<div class="input-field">
+			<p> Learned paintings: {{learnedNumber}} </p>
+		</div>
+		<button (click)="ClearProgress()">Clear progress</button>
+	</div>
