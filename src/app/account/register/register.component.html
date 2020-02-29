@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="form">
 		<h1>Register</h1>
-		<form (ngSubmit)="onSubmit()" #f [formGroup]="registerForm">
+		<form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 			<div class="input-field">
                 <input class="username" placeholder=" " pattern="\S+.*" type="text" required formControlName="username" />
                 <span class="bar"></span>
@@ -12,7 +12,7 @@
                 <span class="bar"></span>
 				<label>Password</label>
 			</div>
-			<button class="submit" type="submit" [disabled]="!f.valid">Register</button>
+			<button class="submit" type="submit">Register</button>
 		</form>
 	</div>
 </div>
