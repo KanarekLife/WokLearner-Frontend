@@ -53,7 +53,11 @@ export class AuthenticationService {
         alert('registered successfuly');
         this.router.navigate(['/login']);
       } else {
-        alert(res.status);
+        if (res.status === 400) {
+          alert('Verify password complexity!');
+        } else {
+          alert(res.status);
+        }
       }
     });
   }
