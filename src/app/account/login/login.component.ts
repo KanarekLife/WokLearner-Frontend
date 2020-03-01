@@ -10,6 +10,7 @@ import {AuthenticationService} from '../../services/authentication/authenticatio
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
+
   constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) {
   }
 
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.isLoading = true;
     this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
+    this.loginForm.reset();
     this.isLoading = false;
   }
 }

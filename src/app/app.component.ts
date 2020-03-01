@@ -8,8 +8,10 @@ import {ApiStatusService} from './services/api-status/api-status.service';
 })
 export class AppComponent {
   title = 'WokLearner';
+
   constructor(private apiStatusService: ApiStatusService) {
   }
+
   async status() {
     return await this.apiStatusService.getStatus();
   }

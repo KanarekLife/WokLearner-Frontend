@@ -31,7 +31,7 @@ export class GalleryComponent implements OnInit {
       this.images = [];
       this.getStyles();
       this.getAuthors();
-      let requestUrl = `/paintings/get?page=${this.page}&random=true`;
+      let requestUrl = `/paintings/get?page=${this.page}&random=false`;
       if (this.selectedStyle !== 'null') {
         requestUrl += `&style=${this.selectedStyle}`;
       }
@@ -41,8 +41,8 @@ export class GalleryComponent implements OnInit {
       fetch(environment.apiUrl + requestUrl, {
         cache: 'force-cache',
         headers: {
-          Accept : 'application/json',
-          Authorization : 'Bearer ' + this.authenticationService.getToken()
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + this.authenticationService.getToken()
         }
       }).then(res => {
         if (res.ok) {
@@ -57,14 +57,17 @@ export class GalleryComponent implements OnInit {
       });
     }
   }
+
   onUpdate(status: PaginationStatus) {
     this.page = status.page;
     this.pages = status.pages;
     this.update();
   }
+
   getUrl(image: ApiImage) {
     return `${environment.apiUrl}/uploads/${image.style}/${image.author}/${image.fileName}`;
   }
+
   getStyles() {
     if (this.authenticationService.isLoggedIn()) {
       let requestUrl = '/paintings/get/styles';

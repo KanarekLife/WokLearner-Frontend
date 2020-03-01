@@ -8,6 +8,7 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 export class AuthenticationService {
   helper: JwtHelperService;
+
   constructor(private router: Router) {
     this.helper = new JwtHelperService();
   }
@@ -20,7 +21,7 @@ export class AuthenticationService {
     await fetch(environment.apiUrl + '/auth/login', {
       method: 'POST',
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username,
@@ -32,6 +33,8 @@ export class AuthenticationService {
           this.setSession(json.token);
           this.router.navigate(['/']);
         });
+      } else if (res.status === 401) {
+        alert('Wrong combination of username and password!');
       } else {
         alert(res.status);
       }
@@ -42,7 +45,7 @@ export class AuthenticationService {
     await fetch(environment.apiUrl + '/account/create', {
       method: 'POST',
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username,

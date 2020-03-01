@@ -15,6 +15,7 @@ export class PaintingsComponent implements OnInit {
   page = 0;
   pages = 0;
   loading = false;
+
   constructor(private authenticationService: AuthenticationService) {
     this.newImage = new ApiImage();
     this.update();
@@ -89,7 +90,7 @@ export class PaintingsComponent implements OnInit {
     formData.append('style', this.newImage.style);
     const options = {
       headers: {
-        Authorization : 'Bearer ' + this.authenticationService.getToken(),
+        Authorization: 'Bearer ' + this.authenticationService.getToken(),
       },
       method: 'POST',
       body: formData
@@ -129,6 +130,7 @@ export class PaintingsComponent implements OnInit {
       });
     }
   }
+
   getUrl(image: ApiImage) {
     return `${environment.apiUrl}/uploads/${image.style}/${image.author}/${image.fileName}`;
   }

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from 'src/app/services/authentication/authentication.service';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
-import {skip} from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage',
@@ -10,14 +9,17 @@ import {skip} from 'rxjs/operators';
   styleUrls: ['./manage.component.scss']
 })
 export class ManageComponent implements OnInit {
+  skipLevel: number;
+  learnedNumber: number;
+
   constructor(private authenticationService: AuthenticationService, private router: Router) {
     this.SaveSkipLevel();
     this.SaveLearningStatus();
   }
-  skipLevel: number;
-  learnedNumber: number;
+
   ngOnInit() {
   }
+
   ChangeUsername(newUsername: string) {
     if (this.authenticationService.isLoggedIn()) {
       fetch(environment.apiUrl + `/account/change-username?newUsername=${newUsername}`, {
@@ -36,13 +38,14 @@ export class ManageComponent implements OnInit {
       });
     }
   }
+
   ChangePassword(oldPassword: string, newPassword: string, newRepeatedPassword: string) {
     if (this.authenticationService.isLoggedIn()) {
       fetch(environment.apiUrl + `/account/change-password`, {
         method: 'POST',
         headers: {
           Authorization: 'Bearer ' + this.authenticationService.getToken(),
-          'Content-Type' : 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           OldPassword: oldPassword,
@@ -79,9 +82,11 @@ export class ManageComponent implements OnInit {
       });
     }
   }
+
   GetUsername() {
     return this.authenticationService.getUsername();
   }
+
   SaveSkipLevel() {
     if (this.authenticationService.isLoggedIn()) {
       fetch(environment.apiUrl + '/learning/skip-level', {
@@ -91,7 +96,7 @@ export class ManageComponent implements OnInit {
       }).then(res => {
         if (res.ok) {
           res.json().then(json => {
-            this.skipLevel =  json as number;
+            this.skipLevel = json as number;
           });
         } else {
           alert(res.status);
@@ -110,6 +115,7 @@ export class ManageComponent implements OnInit {
       }).then(res => {
         if (res.ok) {
           this.SaveSkipLevel();
+          location.reload();
         } else {
           alert(res.status);
         }

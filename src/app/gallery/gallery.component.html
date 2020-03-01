@@ -1,22 +1,22 @@
 <p class="heading">Image Gallery</p>
 <app-loading *ngIf="images.length == 0"></app-loading>
-<select [(ngModel)]="selectedStyle" (ngModelChange)="this.update()">
+<select (ngModelChange)="this.update()" [(ngModel)]="selectedStyle">
   <option [value]="null">All</option>
   <option *ngFor="let style of styles" [value]="style">{{style}}</option>
 </select>
-<select [(ngModel)]="selectedAuthor" (ngModelChange)="this.update()">
+<select (ngModelChange)="this.update()" [(ngModel)]="selectedAuthor">
   <option [value]="null">All</option>
   <option *ngFor="let author of authors" [value]="author">{{author}}</option>
 </select>
-  <div class="gallery-image">
-    <div class="img-box" *ngFor="let image of images">
-      <img src="{{getUrl(image)}}" alt="" crossorigin="anonymous"/>
-      <div class="transparent-box">
-        <div class="caption">
-          <p class="author">{{image.author}}</p>
-          <p class="style">{{image.style}}</p>
-        </div>
+<div class="gallery-image">
+  <div *ngFor="let image of images" class="img-box">
+    <img alt="" crossorigin="anonymous" src="{{getUrl(image)}}"/>
+    <div class="transparent-box">
+      <div class="caption">
+        <p class="author">{{image.author}}</p>
+        <p class="style">{{image.style}}</p>
       </div>
     </div>
   </div>
-<app-pagination [page]="page" [pages]="pages" (Update)="onUpdate($event)"></app-pagination>
+</div>
+<app-pagination (Update)="onUpdate($event)" [page]="page" [pages]="pages"></app-pagination>

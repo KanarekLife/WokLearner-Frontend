@@ -9,10 +9,11 @@ import {ApiStatusService} from '../../services/api-status/api-status.service';
 export class FooterComponent implements OnInit {
 
   status: boolean;
+
   constructor(ApiStatus: ApiStatusService) {
-      ApiStatus.getStatus().then((status) => {
-        this.status = status;
-      });
+    ApiStatus.getStatus().then((status) => {
+      this.status = status;
+    });
   }
 
   ngOnInit() {

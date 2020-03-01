@@ -1,6 +1,13 @@
 <h1>Learn Time!</h1>
-<img [src]="getUrl(this.painting)"/>
+<img [src]="getUrl(this.painting)" *ngIf="this.painting"/>
 <div>
-  <button (click)="Answer()">I know author and style</button>
-  <button (click)="Next()">I don't know author or style</button>
+  <select [(ngModel)]="selectedStyle" *ngIf="this.styles">
+    <option [value]="null">Select style</option>
+    <option *ngFor="let style of styles" [value]="style">{{style}}</option>
+  </select>
+  <select [(ngModel)]="selectedAuthor" *ngIf="this.authors">
+    <option [value]="null">Select author</option>
+    <option *ngFor="let author of authors" [value]="author">{{author}}</option>
+  </select>
+  <button (click)="Answer()" [disabled]="selectedAuthor===null || selectedStyle===null">Answer</button>
 </div>

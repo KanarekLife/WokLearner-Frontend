@@ -6,7 +6,8 @@ import {environment} from '../../../environments/environment';
 })
 export class ApiStatusService {
 
-  constructor() { }
+  constructor() {
+  }
 
   async getStatus() {
     return (await fetch(environment.apiUrl + '/swagger/index.html')).ok;

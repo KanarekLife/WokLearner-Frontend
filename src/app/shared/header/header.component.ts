@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication/authentication.service';
 import {Router} from '@angular/router';
+
 declare const hideNav, showNav: any;
 
 @Component({
@@ -9,7 +10,8 @@ declare const hideNav, showNav: any;
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
+  }
 
   ngOnInit() {
   }

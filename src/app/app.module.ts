@@ -20,8 +20,8 @@ import {PaintingsComponent} from './admin/paintings/paintings.component';
 import {UsersComponent} from './admin/users/users.component';
 import {LoadingComponent} from './shared/helpers/loading/loading.component';
 import {PaginationComponent} from './shared/helpers/pagination/pagination.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,10 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

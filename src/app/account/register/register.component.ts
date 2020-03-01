@@ -9,12 +9,18 @@ import {AuthenticationService} from 'src/app/services/authentication/authenticat
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) {
+  }
+
   private static hasLowerCase(str: string): boolean {
     return str.toUpperCase() !== str;
   }
+
   private static hasUpperCase(str: string): boolean {
     return str.toLowerCase() !== str;
   }
+
   private static hasNonAlphaNumericCharacter(str: string): boolean {
     let contain = false;
     '*|,:<>[]{};()@&$#%!'.split('').forEach(x => {
@@ -28,7 +34,6 @@ export class RegisterComponent implements OnInit {
   private static hasNumber(str: string): boolean {
     return /\d/.test(str);
   }
-  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -36,6 +41,7 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+
   onSubmit() {
     const password: string = this.registerForm.controls.password.value;
     if (!RegisterComponent.hasLowerCase(password)) {

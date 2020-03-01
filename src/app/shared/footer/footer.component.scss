@@ -1,30 +1,34 @@
 .footer-copyright {
-	width: 100%;
-	height: 125px;
-	position: relative;
-	bottom: 0;
-	left: 0;
-	background-color: rgb(30, 32, 34);
-	text-align: center;
-	padding: 5px 0;
-	margin-top: auto;
-	a {
-		text-decoration: underline;
-		color: #5389ad;
-	}
+  width: 100%;
+  height: 125px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(30, 32, 34);
+  text-align: center;
+  padding: 5px 0;
+  margin-top: auto;
+
+  a {
+    text-decoration: underline;
+    color: #5389ad;
+  }
 }
+
 .api-status {
-	margin: 10px auto;
-	padding: 10px;
-	border: solid gray;
-	border-radius: 15px;
-	display: inline-block;
+  margin: 10px auto;
+  padding: 10px;
+  border: solid gray;
+  border-radius: 15px;
+  display: inline-block;
 }
+
 .working {
-    @extend .api-status;
-    background-color: green;
+  @extend .api-status;
+  background-color: green;
 }
+
 .notworking {
-    @extend .api-status;
-    background-color: red;
+  @extend .api-status;
+  background-color: red;
 }

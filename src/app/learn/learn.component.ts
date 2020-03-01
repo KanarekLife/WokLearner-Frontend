@@ -10,8 +10,16 @@ import {environment} from '../../environments/environment';
 })
 export class LearnComponent implements OnInit {
 
+  painting: ApiImage;
+  selectedAuthor = 'null';
+  selectedStyle = 'null';
+  styles: string[] = [];
+  authors: string[] = [];
+
   constructor(private authenticationService: AuthenticationService) {
     if (this.authenticationService.isLoggedIn()) {
+      this.getStyles();
+      this.getAuthors();
       fetch(environment.apiUrl + '/learning/learn', {
         headers: {
           Authorization: 'Bearer ' + this.authenticationService.getToken()
@@ -29,31 +37,80 @@ export class LearnComponent implements OnInit {
       });
     }
   }
-  painting: ApiImage;
+
   ngOnInit() {
   }
+
   getUrl(image: ApiImage) {
     return `${environment.apiUrl}/uploads/${image.style}/${image.author}/${image.fileName}`;
   }
 
   Answer() {
-    if (this.authenticationService) {
-      fetch(environment.apiUrl + `/learning/answer?paintingId=${this.painting.id}`, {
+    if (this.authenticationService && this.selectedAuthor !== null && this.selectedStyle !== null) {
+      fetch(environment.apiUrl + `/learning/answer?paintingId=${this.painting.id}&style=${this.selectedStyle}&author=${this.selectedAuthor}`, {
         method: 'POST',
         headers: {
           Authorization: 'Bearer ' + this.authenticationService.getToken()
         }
       }).then(res => {
         if (res.ok) {
-          location.reload();
+          res.json().then(json => {
+            if (json.result) {
+              alert('Nice! Good answer!');
+              location.reload();
+            } else {
+              alert(`Too bad! Correct answer was ${this.painting.style} - ${this.painting.author}`);
+              location.reload();
+            }
+          });
         } else {
           alert(res.status);
         }
       });
     }
   }
-  Next() {
-    alert(`Painting info: style - ${this.painting.style} ; author - ${this.painting.author}`);
-    location.reload();
+
+  getStyles() {
+    if (this.authenticationService.isLoggedIn()) {
+      let requestUrl = '/paintings/get/styles';
+      if (this.selectedAuthor !== 'null') {
+        requestUrl += `?author=${this.selectedAuthor}`;
+      }
+      fetch(environment.apiUrl + requestUrl, {
+        headers: {
+          Authorization: 'Bearer ' + this.authenticationService.getToken()
+        }
+      }).then(res => {
+        if (res.ok) {
+          res.json().then(json => {
+            this.styles = json.sort();
+          });
+        } else {
+          alert(res.status);
+        }
+      });
+    }
+  }
+
+  getAuthors() {
+    if (this.authenticationService.isLoggedIn()) {
+      let requestUrl = '/paintings/get/authors';
+      if (this.selectedStyle !== 'null') {
+        requestUrl += `?style=${this.selectedStyle}`;
+      }
+      fetch(environment.apiUrl + requestUrl, {
+        headers: {
+          Authorization: 'Bearer ' + this.authenticationService.getToken()
+        }
+      }).then(res => {
+        if (res.ok) {
+          res.json().then(json => {
+            this.authors = json.sort();
+          });
+        } else {
+          alert(res.status);
+        }
+      });
+    }
   }
 }

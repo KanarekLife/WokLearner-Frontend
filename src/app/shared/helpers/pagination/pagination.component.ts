@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PaginationStatus} from '../../../models/PaginationStatus';
+
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
@@ -11,10 +12,13 @@ export class PaginationComponent implements OnInit {
   @Input()
   pages: number;
   @Output() Update = new EventEmitter<PaginationStatus>();
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
+
   previous() {
     if (this.page > 0) {
       this.page--;

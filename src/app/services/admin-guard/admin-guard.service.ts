@@ -8,14 +8,15 @@ import {AuthenticationService} from '../authentication/authentication.service';
 })
 export class AdminGuardService implements CanActivate {
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
+  }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if (this.authenticationService.isAdmin()) {
-        return true;
-      } else {
-        this.router.navigate(['/page-not-found']);
-        return false;
-      }
+    if (this.authenticationService.isAdmin()) {
+      return true;
+    } else {
+      this.router.navigate(['/page-not-found']);
+      return false;
+    }
   }
 }

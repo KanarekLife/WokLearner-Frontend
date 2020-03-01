@@ -1,18 +1,20 @@
 <div class="container">
-	<div class="form">
-		<h1>Login</h1>
-		<form (ngSubmit)="onSubmit()" #f="ngForm" [formGroup]="loginForm">
-			<div class="input-field">
-                <input class="username" placeholder=" " required pattern="\S+.*" type="text" required formControlName="username" />
-                <span class="bar"></span>
-				<label>Username</label>
-			</div>
-			<div class="input-field">
-                <input class="password" placeholder=" " required pattern="\S+.*" type="password" required formControlName="password" />
-                <span class="bar"></span>
-				<label>Password</label>
-			</div>
-			<button class="submit" type="submit" [disabled]="!f.valid">Login</button>
-		</form>
-	</div>
+  <div class="form">
+    <h1>Login</h1>
+    <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="input-field">
+        <input class="username" formControlName="username" pattern="\S+.*" placeholder=" " required required
+               type="text"/>
+        <span class="bar"></span>
+        <label>Username</label>
+      </div>
+      <div class="input-field">
+        <input class="password" formControlName="password" pattern="\S+.*" placeholder=" " required required
+               type="password"/>
+        <span class="bar"></span>
+        <label>Password</label>
+      </div>
+      <button [disabled]="!f.valid" class="submit" type="submit">Login</button>
+    </form>
+  </div>
 </div>

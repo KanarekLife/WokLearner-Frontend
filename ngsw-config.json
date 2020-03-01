@@ -15,7 +15,8 @@
           "https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"
         ]
       }
-    }, {
+    },
+    {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
@@ -29,8 +30,8 @@
   ],
   "dataGroups": [
     {
-      "name" : "dynamicResources",
-      "urls" : [
+      "name": "dynamicResources",
+      "urls": [
         "**/uploads/**/*.jpg"
       ],
       "cacheConfig": {
