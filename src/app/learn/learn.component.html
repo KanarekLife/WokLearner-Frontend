@@ -1,6 +1,6 @@
 <div class="cont">
   <h1>Learn Time!</h1>
-  <img src="/src/app/landing/header-background.jpg"/>
+  <img [src]="getUrl(this.painting)" *ngIf="this.painting"/>
   <div class="select">
     <select [(ngModel)]="selectedStyle" *ngIf="this.styles">
       <option [value]="null">Select style</option>
@@ -13,7 +13,7 @@
     <button (click)="Answer()" [disabled]="selectedAuthor===null || selectedStyle===null">Answer</button>
   </div>
   <div class="popup" id="popup" style="display:none;">
-    <div class="popup-inner">    
+    <div class="popup-inner">
       <h2 id="title">Wrong answer!</h2>
       <h3 id="subtitle">Painting info</h3>
       <p id="painting-info"></p>
@@ -21,6 +21,5 @@
     </div>
   </div>
   <div class="overlay" id="overlay" style="display:none;"></div>
-  </div>
-  
-  
+</div>
+

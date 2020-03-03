@@ -1,82 +1,82 @@
 .masthead {
-    overflow: hidden;
-    color: rgb(243, 243, 243);
-    padding: 1em;
-    background-color: #dbdbdb;
-  
-    &.responsive-image {
-      background-position: center;
-      background-attachment: scroll;
-      background-repeat: no-repeat;
-      -webkit-background-size: cover;
-         -moz-background-size: cover;
-           -o-background-size: cover;
-              background-size: cover;
-    }
+  overflow: hidden;
+  color: rgb(243, 243, 243);
+  padding: 1em;
+  background-color: #dbdbdb;
 
-    a {
-        color: #5389ad;
-        text-decoration: none;
-    }
-
-
+  &.responsive-image {
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
-  
-  .masthead .entry-header {
-    margin: 5.5em 0 4.5em 0;
-    overflow: auto;
+
+  a {
+    color: #5389ad;
+    text-decoration: none;
+  }
+
+
+}
+
+.masthead .entry-header {
+  margin: 5.5em 0 4.5em 0;
+  overflow: auto;
+  text-align: center;
+
+  @media screen and (min-width: 640px) {
+    margin: 11em 0 7.5em 0;
+  }
+}
+
+
+.masthead .entry-title {
+  font-size: 40px;
+  margin: 0 0 0.25em 0;
+
+  @media screen and (min-width: 640px) {
+    font-size: 60px;
+  }
+}
+
+
+.masthead .entry-subtitle {
+  margin-top: 0;
+  margin-bottom: 0.35em;
+  font-size: 20px;
+
+  @media screen and (min-width: 640px){
+    font-size: 30px;
+  }
+
+}
+
+.responsive-image {
+  background-image: url('~src/assets/img/header-background.jpg');
+}
+
+.info {
+  h1  {
     text-align: center;
+    font-size: 50px;
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+    position: relative;
 
-    @media screen and (min-width: 640px) {
-      margin: 11em 0 7.5em 0;
+    &:after {
+      background-color: #5389ad;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 3px;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%,0);
+      width: 300px;
     }
-  }
-  
-  
-  .masthead .entry-title {
-    font-size: 40px;
-    margin: 0 0 0.25em 0;
-
-    @media screen and (min-width: 640px) {
-      font-size: 60px;
-    }
-  }
-  
-  
-  .masthead .entry-subtitle {
-    margin-top: 0;
-    margin-bottom: 0.35em;
-    font-size: 20px;
-
-    @media screen and (min-width: 640px){
-        font-size: 30px;
-    }
-
-  }
-
-  .responsive-image {
-    background-image: url('./header-background.jpg');
-  }
-
-  .info { 
-    h1  {
-      text-align: center;
-      font-size: 50px;
-      margin: 0 0 10px;
-      padding: 0 0 10px;
-      position: relative;
-
-      &:after {
-        background-color: #5389ad; 
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 3px;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%,0);
-        width: 300px;
-      }
   }
 
   .about-section {
@@ -86,27 +86,27 @@
       width: 100%;
       text-align: center;
       margin: 70px 0 130px 0;
-  
+
       i {
         font-size: 70px;
       }
-  
+
       h2 {
         font-size: 36px;
       }
-  
+
       p {
         margin: 0 25px;
       }
-  
-  
+
+
       @media screen and (min-width: 1000px) {
-        
-      float:left;
-      text-align:center;
-      width: 33%;
+
+        float:left;
+        text-align:center;
+        width: 33%;
       }
-  
+
     }
   }
   .warning {
@@ -116,7 +116,3 @@
     text-align: center;
   }
 }
-
-
-
-  
