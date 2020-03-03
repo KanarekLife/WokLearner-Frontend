@@ -46,12 +46,6 @@ export class LearnComponent implements OnInit {
   }
 
   Answer() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    document.getElementById('painting-info').innerHTML = `<strong> Correct answer: </strong>` + `<br>` + `${this.painting.style} - ${this.painting.author}`;
-
-
     if (this.authenticationService && this.selectedAuthor !== null && this.selectedStyle !== null) {
       fetch(environment.apiUrl + `/learning/answer?paintingId=${this.painting.id}&style=${this.selectedStyle}&author=${this.selectedAuthor}`, {
         method: 'POST',
