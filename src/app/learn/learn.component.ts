@@ -59,7 +59,10 @@ export class LearnComponent implements OnInit {
               alert('Nice! Good answer!');
               location.reload();
             } else {
-              alert(`Too bad! Correct answer was ${this.painting.style} - ${this.painting.author}`);
+              document.getElementById('popup').style.display = 'block';
+              document.getElementById('overlay').style.display = 'block';
+              document.body.style.overflow = 'hidden';
+              document.getElementById('painting-info').innerHTML = `<strong> Correct answer: </strong>` + `<br>` + `${this.painting.style} - ${this.painting.author}`;
               location.reload();
             }
           });
@@ -90,6 +93,9 @@ export class LearnComponent implements OnInit {
         }
       });
     }
+  }
+  Close() {
+    location.reload();
   }
 
   getAuthors() {
