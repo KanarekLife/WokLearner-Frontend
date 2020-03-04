@@ -34,9 +34,9 @@ export class AuthenticationService {
           this.router.navigate(['/']);
         });
       } else if (res.status === 401) {
-        alert('Wrong combination of username and password!');
+        alert('Błędna kombinacja nazwy użytkownika i hasła!');
       } else {
-        alert(res.status);
+        alert(`Wystąpił bład z serwera o numerze ${res.status}! Skontaktuj się z adminem w celu naprawy lub spróbuj ponownie za jakiś czas!`);
       }
     });
   }
@@ -53,13 +53,13 @@ export class AuthenticationService {
       })
     }).then(res => {
       if (res.ok) {
-        alert('registered successfuly');
+        alert('Pomyślnie utworzono konto!');
         this.router.navigate(['/login']);
       } else {
         if (res.status === 400) {
-          alert('Verify password complexity!');
+          alert('Sprawdź czy hasło jest wystarczająco złożone!');
         } else {
-          alert(res.status);
+          alert(`Wystąpił bład z serwera o numerze ${res.status}! Skontaktuj się z adminem w celu naprawy lub spróbuj ponownie za jakiś czas!`);
         }
       }
     });

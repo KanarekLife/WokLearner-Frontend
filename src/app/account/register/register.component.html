@@ -1,18 +1,19 @@
 <div class="container">
   <div class="form">
-    <h1>Register</h1>
+    <h1>Zarejestruj się</h1>
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
       <div class="input-field">
         <input class="username" formControlName="username" pattern="\S+.*" placeholder=" " required type="text"/>
         <span class="bar"></span>
-        <label>Username</label>
+        <label>Nazwa użytkownika</label>
       </div>
       <div class="input-field">
         <input class="password" formControlName="password" pattern="\S+.*" placeholder=" " required type="password"/>
         <span class="bar"></span>
-        <label>Password</label>
+        <label>Hasło</label>
       </div>
-      <button class="submit" type="submit">Register</button>
+      <p>Właściciel strony nie ponosi odpowiedzialności za wykorzystane dane komórkowe podczas korzystania z tej aplikacji oraz za wszelkie jej użytkowanie wbrew jej przeznaczeniu.</p>
+      <button class="submit" type="submit">Zarejestruj się</button>
     </form>
   </div>
 </div>

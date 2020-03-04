@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 
@@ -20,6 +20,7 @@ h1 {
   font-size: 50px;
   margin: 50px 0;
 }
+
 img {
   margin-left: auto;
   margin-right: auto;
@@ -55,6 +56,7 @@ button {
   cursor: pointer;
   background: #5389ad;
   transition: background 0.4s ease;
+
   &:hover {
     background: rgb(108, 152, 234);
   }
@@ -72,7 +74,7 @@ button {
 }
 
 .select {
-  text-align:center
+  text-align: center
 }
 
 select {
@@ -99,32 +101,32 @@ select {
 }
 
 
-.popup{
-  background:rgb(42, 42, 42);
-  position:fixed;
+.popup {
+  background: rgb(42, 42, 42);
+  position: fixed;
   border: 2px solid white;
-  z-index:101;
-  width:500px;
-  height:300px;
-  top:50%;
-  left:50%;
-  margin-left:-250px;
-  margin-top:-150px;
+  z-index: 101;
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -150px;
 
-  @media(max-width:768px){
-    position:absolute;
+  @media(max-width: 768px) {
+    position: absolute;
     top: 50%;
     left: 10%;
     width: 70%;
-    margin:auto 5%;
+    margin: auto 5%;
   }
 
-  .popup-inner{
-    position:relative;
-    padding:1em;
+  .popup-inner {
+    position: relative;
+    padding: 1em;
     text-align: center;
 
-    input.sml-close-button{
+    input.sml-close-button {
       width: 80%;
       height: 45px;
       border: none;
@@ -136,6 +138,7 @@ select {
       cursor: pointer;
       background: #5389ad;
       transition: background 0.4s ease;
+
       &:hover {
         background: rgb(108, 152, 234);
       }
@@ -158,21 +161,21 @@ h2 {
 }
 
 
-input.sml-close{
-  background:#f1f1f1;
-  border:none;
-  width:200px;
-  height:50px;
-  cursor:pointer;
+input.sml-close {
+  background: #f1f1f1;
+  border: none;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
 
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  margin:auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
-.s3-center{
-  text-align:center;
+.s3-center {
+  text-align: center;
 }

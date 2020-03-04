@@ -1,20 +1,20 @@
 <div class="container">
   <div class="form">
-    <h1>Login</h1>
+    <h1>Zaloguj się</h1>
     <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <div class="input-field">
         <input class="username" formControlName="username" pattern="\S+.*" placeholder=" " required required
                type="text"/>
         <span class="bar"></span>
-        <label>Username</label>
+        <label>Nazwa użytkownika</label>
       </div>
       <div class="input-field">
         <input class="password" formControlName="password" pattern="\S+.*" placeholder=" " required required
                type="password"/>
         <span class="bar"></span>
-        <label>Password</label>
+        <label>Hasło</label>
       </div>
-      <button [disabled]="!f.valid" class="submit" type="submit">Login</button>
+      <button [disabled]="!f.valid" class="submit" type="submit">Zaloguj się</button>
     </form>
   </div>
 </div>

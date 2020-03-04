@@ -1,23 +1,23 @@
 <div class="cont">
-  <h1>Learn Time!</h1>
-  <img [src]="getUrl(this.painting)" *ngIf="this.painting"/>
+  <h1>Czas na naukę!</h1>
+  <img *ngIf="this.painting" [src]="getUrl(this.painting)"/>
   <div class="select">
-    <select [(ngModel)]="selectedStyle" *ngIf="this.styles">
-      <option [value]="null">Select style</option>
+    <select *ngIf="this.styles" [(ngModel)]="selectedStyle">
+      <option [value]="null">Wybierz styl</option>
       <option *ngFor="let style of styles" [value]="style">{{style}}</option>
     </select>
-    <select [(ngModel)]="selectedAuthor" *ngIf="this.authors">
-      <option [value]="null">Select author</option>
+    <select *ngIf="this.authors" [(ngModel)]="selectedAuthor">
+      <option [value]="null">Wybierz autora</option>
       <option *ngFor="let author of authors" [value]="author">{{author}}</option>
     </select>
-    <button (click)="Answer()" [disabled]="selectedAuthor===null || selectedStyle===null">Answer</button>
+    <button (click)="Answer()" [disabled]="selectedAuthor===null || selectedStyle===null">Sprawdź</button>
   </div>
   <div class="popup" id="popup" style="display:none;">
     <div class="popup-inner">
       <h2 id="title">{{popUpTitle}}</h2>
-      <h3 id="subtitle">Painting info</h3>
+      <h3 id="subtitle">Informacje o obrazie</h3>
       <p id="painting-info">{{popUpContent}}</p>
-      <input type="button" name="Close" class="sml-close-button" (click)="Close()" value="Next painting">
+      <input (click)="Close()" class="sml-close-button" name="Close" type="button" value="Next painting">
     </div>
   </div>
   <div class="overlay" id="overlay" style="display:none;"></div>

@@ -3,15 +3,15 @@
   <a class="logo" routerLink="/" routerLinkActive="active">
     <span>Wok</span>Learner</a>
   <ul (click)="hideNav()" class="main-nav" id="main-nav">
-    <li><a *ngIf="!this.isLoggedIn()" class="nav-links" routerLink="/login" routerLinkActive="active">Login</a></li>
-    <li><a *ngIf="!this.isLoggedIn()" class="nav-links" routerLink="/register" routerLinkActive="active">Register</a>
+    <li><a *ngIf="!this.isLoggedIn()" class="nav-links" routerLink="/login" routerLinkActive="active">Zaloguj się</a></li>
+    <li><a *ngIf="!this.isLoggedIn()" class="nav-links" routerLink="/register" routerLinkActive="active">Zarejestruj się</a>
     </li>
-    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/learn" routerLinkActive="active">Learn</a></li>
-    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/gallery" routerLinkActive="active">Gallery</a></li>
-    <li><a *ngIf="this.isLoggedIn() && this.isAdmin()" class="nav-links" routerLink="/admin" routerLinkActive="active">Admin
-      Section</a></li>
-    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/manage" routerLinkActive="active">Manage Account</a>
+    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/learn" routerLinkActive="active">Ucz się</a></li>
+    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/gallery" routerLinkActive="active">Galeria</a></li>
+    <li><a *ngIf="this.isLoggedIn() && this.isAdmin()" class="nav-links" routerLink="/admin" routerLinkActive="active">Sekcja
+      Admina</a></li>
+    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/manage" routerLinkActive="active">Ustawienia konta</a>
     </li>
-    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/logout" routerLinkActive="active">Logout</a></li>
+    <li><a *ngIf="this.isLoggedIn()" class="nav-links" routerLink="/logout" routerLinkActive="active">Wyloguj się</a></li>
   </ul>
 </nav>

@@ -2,7 +2,7 @@
   overflow: hidden;
   color: rgb(243, 243, 243);
   padding: 1em;
-  background-color: #dbdbdb;
+  background-color: #4d4d4d;
 
   &.responsive-image {
     background-position: center;
@@ -48,18 +48,14 @@
   margin-bottom: 0.35em;
   font-size: 20px;
 
-  @media screen and (min-width: 640px){
+  @media screen and (min-width: 640px) {
     font-size: 30px;
   }
 
 }
 
-.responsive-image {
-  background-image: url('~src/assets/img/header-background.jpg');
-}
-
 .info {
-  h1  {
+  h1 {
     text-align: center;
     font-size: 50px;
     margin: 0 0 10px;
@@ -74,13 +70,14 @@
       height: 3px;
       left: 50%;
       position: absolute;
-      transform: translate(-50%,0);
+      transform: translate(-50%, 0);
       width: 300px;
     }
   }
 
   .about-section {
     margin: 50px 0;
+
     .about-item {
       display: block;
       width: 100%;
@@ -102,13 +99,14 @@
 
       @media screen and (min-width: 1000px) {
 
-        float:left;
-        text-align:center;
+        float: left;
+        text-align: center;
         width: 33%;
       }
 
     }
   }
+
   .warning {
     margin-top: 150px;
     font-size: 15px;
