@@ -14,9 +14,9 @@
   </div>
   <div class="popup" id="popup" style="display:none;">
     <div class="popup-inner">
-      <h2 id="title">Wrong answer!</h2>
+      <h2 id="title">{{popUpTitle}}</h2>
       <h3 id="subtitle">Painting info</h3>
-      <p id="painting-info"></p>
+      <p id="painting-info">{{popUpContent}}</p>
       <input type="button" name="Close" class="sml-close-button" (click)="Close()" value="Next painting">
     </div>
   </div>

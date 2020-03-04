@@ -76,3 +76,57 @@ body {
   left: 0;
   transition: background-color 0.2s ease;
 }
+.select {
+  text-align:center
+}
+
+select {
+  display: block;
+  width: 70%;
+  margin: 40px auto 20px auto;
+  padding: 10px 0;
+  outline: none;
+
+
+  @media screen and (min-width: 600px) {
+    display: inline;
+    margin: 40px 20px 20px 20px;
+    width: 50%;
+  }
+
+
+  @media screen and (min-width: 1000px) {
+    max-width: 400px;
+    width: 25%;
+
+  }
+
+}
+
+button {
+  width: 80%;
+  height: 45px;
+  border: none;
+  font-size: 17px;
+  font-weight: lighter;
+  margin: 70px auto 50px auto;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  background: #5389ad;
+  transition: background 0.4s ease;
+  &:hover {
+    background: rgb(108, 152, 234);
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 50%;
+  }
+
+
+  @media screen and (min-width: 1000px) {
+    max-width: 300px;
+    width: 25%;
+
+  }
+}

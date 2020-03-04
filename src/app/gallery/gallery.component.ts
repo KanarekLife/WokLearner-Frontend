@@ -57,7 +57,6 @@ export class GalleryComponent implements OnInit {
       });
     }
   }
-
   onUpdate(status: PaginationStatus) {
     this.page = status.page;
     this.pages = status.pages;

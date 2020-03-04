@@ -16,6 +16,9 @@ export class LearnComponent implements OnInit {
   styles: string[] = [];
   authors: string[] = [];
 
+  popUpTitle: string = null;
+  popUpContent: string = null;
+
   constructor(private authenticationService: AuthenticationService) {
     if (this.authenticationService.isLoggedIn()) {
       this.getStyles();
@@ -56,14 +59,9 @@ export class LearnComponent implements OnInit {
         if (res.ok) {
           res.json().then(json => {
             if (json.result) {
-              alert('Nice! Good answer!');
-              location.reload();
+              this.showPopUp('Good answer!', 'Congrats!');
             } else {
-              document.getElementById('popup').style.display = 'block';
-              document.getElementById('overlay').style.display = 'block';
-              document.body.style.overflow = 'hidden';
-              document.getElementById('painting-info').innerHTML = `<strong> Correct answer: </strong>` + `<br>` + `${this.painting.style} - ${this.painting.author}`;
-              location.reload();
+              this.showPopUp(`Incorrect answer!`, `Correct answer: ${this.painting.style} - ${this.painting.author}`);
             }
           });
         } else {
@@ -96,6 +94,14 @@ export class LearnComponent implements OnInit {
   }
   Close() {
     location.reload();
+  }
+
+  showPopUp(title: string, content: string) {
+    this.popUpTitle = title;
+    this.popUpContent = content;
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
   }
 
   getAuthors() {
