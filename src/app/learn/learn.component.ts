@@ -56,6 +56,7 @@ export class LearnComponent implements OnInit {
         if (res.ok) {
           res.json().then(json => {
             if (json.result) {
+              alert('Nice! Good answer!');
               location.reload();
             } else {
               document.getElementById('popup').style.display = 'block';
