@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://207.154.217.6:5000'
+  apiUrl: 'http://woklearner.tk:5000'
 };
