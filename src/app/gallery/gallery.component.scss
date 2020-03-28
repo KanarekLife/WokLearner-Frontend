@@ -76,8 +76,9 @@ body {
   left: 0;
   transition: background-color 0.2s ease;
 }
+
 .select {
-  text-align:center
+  text-align: center
 }
 
 select {
@@ -115,6 +116,7 @@ button {
   cursor: pointer;
   background: #5389ad;
   transition: background 0.4s ease;
+
   &:hover {
     background: rgb(108, 152, 234);
   }

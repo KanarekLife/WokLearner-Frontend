@@ -29,7 +29,7 @@ export class ManageComponent implements OnInit {
         }
       }).then(res => {
         if (res.ok) {
-          alert(`Successfully changed your username to ${newUsername}!`);
+          alert(`Pomyślnie zmieniono nazwę użytkownika na ${newUsername}!`);
           this.authenticationService.logout();
           this.router.navigate(['/']);
         } else {
@@ -54,7 +54,7 @@ export class ManageComponent implements OnInit {
         })
       }).then(res => {
         if (res.ok) {
-          alert('Successfully changed your password!');
+          alert('Pomyślnie zmieniono hasło! Proszę ponownie się zalogować!');
           this.authenticationService.logout();
           this.router.navigate(['/']);
         } else {
@@ -73,7 +73,7 @@ export class ManageComponent implements OnInit {
         }
       }).then(res => {
         if (res.ok) {
-          alert('Successfully deleted your account!');
+          alert('Pomyślnie usunięto twoje konto!');
           this.authenticationService.logout();
           this.router.navigate(['/']);
         } else {
@@ -150,7 +150,7 @@ export class ManageComponent implements OnInit {
         method: 'POST'
       }).then(res => {
         if (res.ok) {
-          alert('Your progress has been cleared!');
+          alert('Twój progres został resetowany!');
           location.reload();
         } else {
           alert(res.status);

@@ -1,15 +1,14 @@
-<p class="heading">Image Gallery</p>
-<app-loading *ngIf="images.length == 0"></app-loading>
+<p class="heading">Galeria</p>
+<app-loading *ngIf="images.length === 0"></app-loading>
 <div class="select">
-  <select [(ngModel)]="selectedStyle">
-    <option [value]="'null'">All</option>
+  <select (change)="update()" [(ngModel)]="selectedStyle">
+    <option [value]="'null'">Wszystkie</option>
     <option *ngFor="let style of styles" [value]="style">{{style}}</option>
   </select>
-  <select [(ngModel)]="selectedAuthor">
-    <option [value]="'null'">All</option>
+  <select (change)="update()" [(ngModel)]="selectedAuthor">
+    <option [value]="'null'">Wszystkie</option>
     <option *ngFor="let author of authors" [value]="author">{{author}}</option>
   </select>
-  <button (click)="update()">Filter</button>
 </div>
 
 <div class="gallery-image">

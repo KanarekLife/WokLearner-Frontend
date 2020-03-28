@@ -1,64 +1,64 @@
 <div class="container">
-  <h1 class="title">Account Settings</h1>
+  <h1 class="title">Ustawienia konta</h1>
   <div class="change-username">
     <div class="form">
-      <h1>Change username</h1>
+      <h1>Zmień nazwę użytkownika</h1>
       <div class="input-field">
         <input #usernameInput pattern="\S+.*" placeholder=" " required type="text"/>
         <span class="bar"></span>
-        <label>Username</label>
+        <label>Nazwa użytkownika</label>
       </div>
-      <button (click)="ChangeUsername(usernameInput.value)">Change username</button>
+      <button (click)="ChangeUsername(usernameInput.value)">Zmień nazwę użytkownika</button>
     </div>
   </div>
   <div class="change-password">
     <div class="form">
-      <h1>Change password</h1>
+      <h1>Zmień hasło</h1>
       <div class="input-field">
         <input #oldPassword pattern="\S+.*" placeholder=" " required type="password"/>
         <span class="bar"></span>
-        <label>Old Password</label>
+        <label>Stare hasło</label>
       </div>
       <div class="input-field">
         <input #newPassword pattern="\S+.*" placeholder=" " required type="password"/>
         <span class="bar"></span>
-        <label>New Password</label>
+        <label>Nowe hasło</label>
       </div>
       <div class="input-field">
         <input #newRepeatedPassword pattern="\S+.*" placeholder=" " required type="password"/>
         <span class="bar"></span>
-        <label>Repeat New Password</label>
+        <label>Powtórz swoje nowe hasło</label>
       </div>
     </div>
-    <button (click)="ChangePassword(oldPassword.value, newPassword.value, newRepeatedPassword.value)">Change password
+    <button (click)="ChangePassword(oldPassword.value, newPassword.value, newRepeatedPassword.value)">Zmień hasło
     </button>
   </div>
   <div class="remove">
     <div class="form">
-      <h1>Remove account</h1>
-      <p>To Remove Account provide your password:</p>
+      <h1>Usuń konto</h1>
+      <p>Aby usunąć konto wpisz swoje hasło:</p>
       <div class="input-field">
         <input #password pattern="\S+.*" placeholder=" " required type="password"/>
         <span class="bar"></span>
-        <label>Are you sure?</label>
+        <label>Czy jesteś powien?</label>
       </div>
-      <button (click)="RemoveAccount(password.value)">Remove account</button>
+      <button (click)="RemoveAccount(password.value)">Usuń konto</button>
     </div>
   </div>
   <div class="skip">
     <h1>Skip Level</h1>
-    <h4>How many times you have to guess painting correctly for it not to show again in 'Learn' section</h4>
+    <h4>Ile razy musisz poprawnie rozpoznać dany obraz aby więcej nie pojawiał się tobie w sekcji nauki</h4>
     <div class="input-field">
       <input #skipLevelInput [value]="skipLevel" pattern="\S+.*" placeholder=" " required type="number"/> <span
       class="bar"></span>
       <label>Skip Level</label>
     </div>
-    <button (click)="ChangeSkipLevel(skipLevelInput.valueAsNumber)">Save changes</button>
+    <button (click)="ChangeSkipLevel(skipLevelInput.valueAsNumber)">Zapisz Skip Level</button>
   </div>
   <div class="learned">
-    <h1>Learning Progress</h1>
+    <h1>Progres</h1>
     <div class="input-field">
-      <p> Learned paintings: {{learnedNumber}} </p>
+      <p> Obrazy nauczone do tej pory (na podstawie 'Skip Level'): {{learnedNumber}} </p>
     </div>
-    <button (click)="ClearProgress()">Clear progress</button>
+    <button (click)="ClearProgress()">Zresetuj progres</button>
   </div>

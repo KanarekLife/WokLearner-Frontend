@@ -45,15 +45,15 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     const password: string = this.registerForm.controls.password.value;
     if (!RegisterComponent.hasLowerCase(password)) {
-      alert('Password do not contain small characters!');
+      alert('Hasło musi zawierać małą literę!');
     } else if (!RegisterComponent.hasUpperCase(password)) {
-      alert('Password do not contain big characters!');
+      alert('Hasło musi zawierać dużą literę!');
     } else if (!RegisterComponent.hasNonAlphaNumericCharacter(password)) {
-      alert('Password do not contain nonalphanumericcharacter characters! (ex. !, ?, # etc.)');
+      alert('Hasło musi zawierać znak specjalny! (np. !, ?, # itp.)');
     } else if (!RegisterComponent.hasNumber(password)) {
-      alert('Password do not contain number!');
+      alert('Hasło musi zawierać cyfrę!');
     } else if (password.length < 6) {
-      alert('Password must be minimum 6 characters long!');
+      alert('Hasło musi mieć minimum 6 znaków długości!');
     } else {
       this.authenticationService.register(this.registerForm.controls.username.value, this.registerForm.controls.password.value);
     }

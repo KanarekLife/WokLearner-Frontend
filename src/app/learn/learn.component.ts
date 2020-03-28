@@ -33,9 +33,9 @@ export class LearnComponent implements OnInit {
             this.painting = json;
           });
         } else if (res.status === 400) {
-          alert('Well... You have already learned everything O_o');
+          alert('Cóż... Nauczyłeś się już wszytkiego albo wystąpił błąd O_o');
         } else {
-          alert('Couldn\'t connect to service!');
+          alert('Nie można połączyć się z serwerem :-(');
         }
       });
     }
@@ -59,9 +59,9 @@ export class LearnComponent implements OnInit {
         if (res.ok) {
           res.json().then(json => {
             if (json.result) {
-              this.showPopUp('Good answer!', 'Congrats!');
+              this.showPopUp('Dobra odpowiedź!', 'Brawo!');
             } else {
-              this.showPopUp(`Incorrect answer!`, `Correct answer: ${this.painting.style} - ${this.painting.author}`);
+              this.showPopUp(`Błędna odpowiedź!`, `Poprawna odpowiedź: ${this.painting.style} - ${this.painting.author}`);
             }
           });
         } else {
@@ -92,6 +92,7 @@ export class LearnComponent implements OnInit {
       });
     }
   }
+
   Close() {
     location.reload();
   }
