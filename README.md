@@ -14,5 +14,11 @@ Created by KanarekLife and Kubsztajn @ 2020
 1. `docker run -p {your desired port here}:80 kanareklife/woklearner-frontend`
 ### How to update?
 Do all the steps from `How to setup?` section
-
+### Screens
+![](docs/screen%20(1).png)
+![](docs/screen%20(2).png)
+![](docs/screen%20(3).png)
+![](docs/screen%20(4).png)
+![](docs/screen%20(5).png)
+![](docs/screen%20(6).png)
 #### Project unfortunately was being created in a hurry so I didn't have time to design unit and integration tests. Please be careful while modifying!
